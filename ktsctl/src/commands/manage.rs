@@ -77,6 +77,10 @@ impl Manager {
     grammar_config: &GrammarConfig,
   ) -> Result<(), HellNo> {
     match grammar_config.source {
+      Source::Bundled => {
+        report_info!(report, "grammar {lang} is bundled; skipping");
+      }
+
       Source::Local { ref path } => {
         report_info!(
           report,
@@ -292,6 +296,10 @@ impl Manager {
     lang_config: &LanguageConfig,
   ) -> Result<(), HellNo> {
     match lang_config.queries.source {
+      Some(Source::Bundled) => {
+        report_info!(report, "queries for {lang} are bundled; skipping");
+      }
+
       Some(Source::Local { ref path }) => {
         report_info!(
           report,

@@ -212,6 +212,8 @@ fn prune_unpinned_grammar(
 
   for entry in grammar_dir.flatten() {
     match &grammar_config.source {
+      Source::Bundled => {}
+
       Source::Local { path } => {
         if entry.path() != *path
           && let Err(err) = fs::remove_file(entry.path())
@@ -264,6 +266,8 @@ fn prune_unpinned_queries(
 
   for entry in queries_dir.flatten() {
     match &lang_config.queries.source {
+      Some(Source::Bundled) => {}
+
       Some(Source::Local { path }) => {
         if entry.path() != *path
           && let Err(err) = fs::remove_file(entry.path())

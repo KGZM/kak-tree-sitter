@@ -66,6 +66,7 @@ impl Resources {
   /// Get a grammar path from config.
   pub fn grammar_path_from_config(&self, lang: &str, config: &GrammarConfig) -> PathBuf {
     match config.source {
+      Source::Bundled => self.data_dir.join(format!("grammars/{lang}.so")),
       Source::Local { ref path } => path.clone(),
       Source::Git { ref pin, .. } => self.grammar_pin_path(lang, pin),
     }
@@ -79,6 +80,7 @@ impl Resources {
   /// Get the queries directory from a language config.
   pub fn queries_dir_from_config(&self, lang: &str, config: &LanguageConfig) -> Option<PathBuf> {
     let path = match config.queries.source.as_ref()? {
+      Source::Bundled => self.queries_dir(lang),
       Source::Local { path } => path.clone(),
       Source::Git { pin, .. } => self.queries_pin_dir(lang, pin),
     };

@@ -7,6 +7,7 @@ use super::section::Field;
 
 pub fn source_field(source: &Source) -> Field {
   match source {
+    Source::Bundled => Field::kv("Source".blue(), "bundled".green()),
     Source::Local { path } => Field::kv("Source (path)".blue(), path.display().to_string().green()),
     Source::Git { url, pin } => Field::kv(
       "Source (git)".blue(),
