@@ -1,0 +1,79 @@
+name: release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  build-linux:
+    name: build (${{ matrix.target }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - target: x86_64-linux
+            cargo_target: x86_64-unknown-linux-gnu
+          - target: aarch64-linux
+            cargo_target: aarch64-unknown-linux-gnu
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: mlugg/setup-zig@v2
+        with:
+          version: 0.16.0
+
+      - uses: dtolnay/rust-toolchain@stable
+
+      - name: add rust targets
+        run: |
+          # gnu (glibc) targets — kts MUST be glibc dynamic (dlopen for grammars).
+          # Also need x86_64-gnu for the host ktsctl used in aarch64 grammar compilation.
+          rustup target add ${{ matrix.cargo_target }} x86_64-unknown-linux-gnu
+
+      - name: install cargo-zigbuild
+        run: cargo install cargo-zigbuild
+
+      - name: restore grammar source cache
+        uses: actions/cache@v4
+        with:
+          path: .grammar-build/${{ matrix.target }}/ktsctl/sources
+          # key includes components.toml so grammar set changes invalidate the cache
+          key: grammar-sources-${{ matrix.target }}-${{ hashFiles('config/grammars.toml') }}
+          restore-keys: |
+            grammar-sources-${{ matrix.target }}-
+
+      - name: build, compile grammars, package
+        run: |
+          make package DIST_TARGET=${{ matrix.target }}
+          VERSION=$(cargo metadata --no-deps --format-version 1 \
+            | python3 -c "import sys,json; pkgs=json.load(sys.stdin)['packages']; \
+              print(next(p['version'] for p in pkgs if p['name']=='kak-tree-sitter'))")
+          ARTIFACT=kak-tree-sitter-${VERSION}-${{ matrix.target }}
+          cd dist && tar -czf ../${ARTIFACT}.tar.gz ${{ matrix.target }}
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.target }}
+          path: "*.tar.gz"
+
+  release:
+    name: release
+    needs: build-linux
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          merge-multiple: true
+          path: artifacts/
+
+      - name: create release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: artifacts/*.tar.gz
+          generate_release_notes: true
