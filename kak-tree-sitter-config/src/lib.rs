@@ -161,11 +161,13 @@ impl GrammarsConfig {
 
   /// Get the grammar path for a given language.
   pub fn get_grammar_path(config: &GrammarConfig, name: impl AsRef<str>) -> Option<PathBuf> {
+    let lang = name.as_ref();
     match config.source {
+      Source::Bundled => dirs::data_dir().map(|dir| bundled_grammar_path(dir, lang)),
+
       Source::Local { ref path } => Some(path.clone()),
 
       Source::Git { ref pin, .. } => {
-        let lang = name.as_ref();
         dirs::data_dir().map(|dir| dir.join(format!("kak-tree-sitter/grammars/{lang}/{pin}.so")))
       }
     }
@@ -211,11 +213,15 @@ impl LanguagesConfig {
 
   /// Get the queries directory for a given language.
   pub fn get_queries_dir(lang_config: &LanguageConfig, lang: impl AsRef<str>) -> Option<PathBuf> {
+    let lang = lang.as_ref();
     match lang_config.queries.source {
+      Some(Source::Bundled) => {
+        dirs::data_dir().map(|dir| dir.join(format!("kak-tree-sitter/queries/{lang}")))
+      }
+
       Some(Source::Local { ref path }) => Some(path.clone()),
 
       Some(Source::Git { ref pin, .. }) => {
-        let lang = lang.as_ref();
         dirs::data_dir().map(|dir| dir.join(format!("kak-tree-sitter/queries/{lang}/{pin}")))
       }
 
@@ -627,6 +633,12 @@ pub struct UserLanguageQueriesConfig {
   pub path: Option<PathBuf>,
 }
 
+/// Flat grammar path for bundled grammars: `{data_dir}/kak-tree-sitter/grammars/{lang}.so`.
+/// Extracted for unit-testability — callers use `get_grammar_path` which supplies `dirs::data_dir()`.
+pub fn bundled_grammar_path(data_dir: PathBuf, lang: &str) -> PathBuf {
+  data_dir.join(format!("kak-tree-sitter/grammars/{lang}.so"))
+}
+
 #[cfg(test)]
 mod tests {
   use std::{collections::HashSet, path::PathBuf};
@@ -748,5 +760,40 @@ mod tests {
     assert!(matches!(source, UserSource::Git { pin, .. } if pin.as_deref() == Some("foo")));
 
     Ok(())
+  }
+
+  #[test]
+  fn bundled_source_serde_round_trip() {
+    use crate::source::UserSource;
+
+    // "bundled" string → UserSource::Bundled
+    let config = toml::from_str::<UserConfig>(r#"
+      [grammar.python]
+      source = "bundled"
+    "#).unwrap();
+    let source = config.grammar.unwrap();
+    let python = source.get("python").unwrap();
+    assert!(matches!(python.source, Some(UserSource::Bundled)));
+
+    // Source::Bundled round-trips through a GrammarConfig
+    let g = UserGrammarConfig { source: Some(UserSource::Bundled), ..Default::default() };
+    let serialized = toml::to_string(&g).unwrap();
+    assert!(serialized.contains("bundled"), "serialized: {serialized}");
+  }
+
+  #[test]
+  fn bundled_grammar_path_formula() {
+    use crate::bundled_grammar_path;
+
+    let path = bundled_grammar_path(PathBuf::from("/data"), "python");
+    assert_eq!(path, PathBuf::from("/data/kak-tree-sitter/grammars/python.so"));
+
+    let path = bundled_grammar_path(PathBuf::from("/data"), "rust-format-args");
+    assert_eq!(path, PathBuf::from("/data/kak-tree-sitter/grammars/rust-format-args.so"));
+  }
+
+  #[test]
+  fn default_config_parses() {
+    Config::default_config().expect("default-config.toml must parse without error");
   }
 }

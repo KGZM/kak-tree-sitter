@@ -10,11 +10,18 @@ use crate::ConfigError;
 #[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
 #[serde(rename_all = "snake_case")]
 pub enum Source {
+  /// Grammar .so lives at `$XDG_DATA_HOME/kak-tree-sitter/grammars/{lang}.so`.
+  /// Used for pre-compiled grammars shipped alongside the bundle.
+  Bundled,
   Local { path: PathBuf },
   Git { url: String, pin: String },
 }
 
 impl Source {
+  pub fn bundled() -> Self {
+    Self::Bundled
+  }
+
   pub fn local(path: impl Into<PathBuf>) -> Self {
     let path = path.into();
     Self::Local { path }
@@ -30,6 +37,8 @@ impl Source {
 impl Source {
   pub fn merge_user_config(&mut self, user_source: UserSource) {
     match (self, user_source) {
+      (self_, UserSource::Bundled) => *self_ = Source::Bundled,
+
       (self_, UserSource::Local { path }) => *self_ = Source::Local { path },
 
       (
@@ -68,6 +77,8 @@ impl TryFrom<UserSource> for Source {
 
   fn try_from(source: UserSource) -> Result<Self, Self::Error> {
     match source {
+      UserSource::Bundled => Ok(Self::Bundled),
+
       UserSource::Local { path } => Ok(Self::Local { path }),
 
       UserSource::Git { url, pin } => {
@@ -82,6 +93,8 @@ impl TryFrom<UserSource> for Source {
 #[derive(Clone, Debug, Deserialize, Serialize)]
 #[serde(rename_all = "snake_case")]
 pub enum UserSource {
+  Bundled,
+
   Local {
     path: PathBuf,
   },
@@ -93,6 +106,10 @@ pub enum UserSource {
 }
 
 impl UserSource {
+  pub fn bundled() -> Self {
+    Self::Bundled
+  }
+
   pub fn local(path: impl Into<PathBuf>) -> Self {
     let path = path.into();
     Self::Local { path }
