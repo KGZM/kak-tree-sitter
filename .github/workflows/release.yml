@@ -53,7 +53,7 @@ jobs:
           make package DIST_TARGET=${{ matrix.target }}
           VERSION=${GITHUB_REF_NAME#v}
           ARTIFACT=kak-tree-sitter-${VERSION}-${{ matrix.target }}
-          cd dist && tar -czf ../${ARTIFACT}.tar.gz ${{ matrix.target }}
+          tar -czf ${ARTIFACT}.tar.gz -C dist/${{ matrix.target }} .
 
       - uses: actions/upload-artifact@v4
         with:
