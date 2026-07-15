@@ -124,17 +124,15 @@ groups = [
 [grammar.astro]
 source = "bundled"
 
-[language.astro.queries.source.git]
-url = "https://git.sr.ht/~hadronized/kak-tree-sitter"
-pin = "3bb01001d93c087c888611bde6ac1254d7338dde"
+[language.astro.queries]
+source = "bundled"
 
 # awk
 [grammar.awk]
 source = "bundled"
 
-[language.awk.queries.source.git]
-url = "https://github.com/helix-editor/helix"
-pin = "7275b7f85014aad7e15d4987ec4f2249572eecfb"
+[language.awk.queries]
+source = "bundled"
 
 # bash
 [language.bash]
@@ -143,9 +141,8 @@ aliases = ["sh"]
 [grammar.bash]
 source = "bundled"
 
-[language.bash.queries.source.git]
-url = "https://github.com/helix-editor/helix"
-pin = "d546a799e579b0cf437bbc0695898e60e216fc27"
+[language.bash.queries]
+source = "bundled"
 
 # bass
 # TODO
@@ -157,9 +154,8 @@ pin = "d546a799e579b0cf437bbc0695898e60e216fc27"
 [grammar.bibtex]
 source = "bundled"
 
-[language.bibtex.queries.source.git]
-url = "https://github.com/helix-editor/helix"
-pin = "7275b7f85014aad7e15d4987ec4f2249572eecfb"
+[language.bibtex.queries]
+source = "bundled"
 
 # bicep
 # TODO
@@ -168,9 +164,8 @@ pin = "7275b7f85014aad7e15d4987ec4f2249572eecfb"
 [grammar.c]
 source = "bundled"
 
-[language.c.queries.source.git]
-url = "https://github.com/helix-editor/helix"
-pin = "7275b7f85014aad7e15d4987ec4f2249572eecfb"
+[language.c.queries]
+source = "bundled"
 
 # cabal
 # TODO
@@ -196,9 +191,8 @@ pin = "7275b7f85014aad7e15d4987ec4f2249572eecfb"
 [grammar.comment]
 source = "bundled"
 
-[language.comment.queries.source.git]
-url = "https://github.com/helix-editor/helix"
-pin = "7275b7f85014aad7e15d4987ec4f2249572eecfb"
+[language.comment.queries]
+source = "bundled"
 
 # common-lisp
 # TODO
@@ -210,9 +204,8 @@ pin = "7275b7f85014aad7e15d4987ec4f2249572eecfb"
 [grammar.cpp]
 source = "bundled"
 
-[language.cpp.queries.source.git]
-url = "https://git.sr.ht/~hadronized/kak-tree-sitter"
-pin = "63cd42de7d7612d9b493074c06a2075ea1a2c899"
+[language.cpp.queries]
+source = "bundled"
 
 # crystal
 [grammar.crystal]
@@ -237,9 +230,8 @@ path = "runtime/queries/c-sharp"
 [grammar.css]
 source = "bundled"
 
-[language.css.queries.source.git]
-url = "https://github.com/helix-editor/helix"
-pin = "7275b7f85014aad7e15d4987ec4f2249572eecfb"
+[language.css.queries]
+source = "bundled"
 
 # cue
 # TODO
@@ -256,8 +248,7 @@ pin = "7275b7f85014aad7e15d4987ec4f2249572eecfb"
 source = "bundled"
 
 [language.devicetree.queries]
-source.git.url = "https://github.com/helix-editor/helix"
-source.git.pin = "b74e2694124b9d269d05f6aace42d4756c3bb724"
+source = "bundled"
 
 # dhall
 # TODO
@@ -266,9 +257,8 @@ source.git.pin = "b74e2694124b9d269d05f6aace42d4756c3bb724"
 [grammar.diff]
 source = "bundled"
 
-[language.diff.queries.source.git]
-url = "https://github.com/helix-editor/helix"
-pin = "7275b7f85014aad7e15d4987ec4f2249572eecfb"
+[language.diff.queries]
+source = "bundled"
 
 # dockerfile
 # TODO
@@ -295,9 +285,8 @@ pin = "7275b7f85014aad7e15d4987ec4f2249572eecfb"
 [grammar.elixir]
 source = "bundled"
 
-[language.elixir.queries.source.git]
-url = "https://github.com/helix-editor/helix"
-pin = "7275b7f85014aad7e15d4987ec4f2249572eecfb"
+[language.elixir.queries]
+source = "bundled"
 
 # elm
 # TODO
@@ -321,9 +310,8 @@ pin = "7275b7f85014aad7e15d4987ec4f2249572eecfb"
 [grammar.fish]
 source = "bundled"
 
-[language.fish.queries.source.git]
-url = "https://github.com/helix-editor/helix"
-pin = "7275b7f85014aad7e15d4987ec4f2249572eecfb"
+[language.fish.queries]
+source = "bundled"
 
 # fortran
 # TODO
@@ -338,9 +326,8 @@ pin = "7275b7f85014aad7e15d4987ec4f2249572eecfb"
 [grammar.git-commit]
 source = "bundled"
 
-[language.git-commit.queries.source.git]
-url = "https://github.com/helix-editor/helix"
-pin = "7275b7f85014aad7e15d4987ec4f2249572eecfb"
+[language.git-commit.queries]
+source = "bundled"
 
 # git-config
 # TODO
@@ -358,17 +345,15 @@ pin = "7275b7f85014aad7e15d4987ec4f2249572eecfb"
 [grammar.glsl]
 source = "bundled"
 
-[language.glsl.queries.source.git]
-url = "https://git.sr.ht/~hadronized/kak-tree-sitter"
-pin = "3bb01001d93c087c888611bde6ac1254d7338dde"
+[language.glsl.queries]
+source = "bundled"
 
 # go
 [grammar.go]
 source = "bundled"
 
-[language.go.queries.source.git]
-url = "https://github.com/helix-editor/helix"
-pin = "7275b7f85014aad7e15d4987ec4f2249572eecfb"
+[language.go.queries]
+source = "bundled"
 
 # godot-resource
 # TODO
@@ -392,9 +377,8 @@ pin = "7275b7f85014aad7e15d4987ec4f2249572eecfb"
 [grammar.haskell]
 source = "bundled"
 
-[language.haskell.queries.source.git]
-url = "https://github.com/helix-editor/helix"
-pin = "7275b7f85014aad7e15d4987ec4f2249572eecfb"
+[language.haskell.queries]
+source = "bundled"
 
 # hcl
 # TODO
@@ -420,9 +404,8 @@ pin = "7275b7f85014aad7e15d4987ec4f2249572eecfb"
 [grammar.hyprlang]
 source = "bundled"
 
-[language.hyprlang.queries.source.git]
-url = "https://github.com/helix-editor/helix"
-pin = "7275b7f85014aad7e15d4987ec4f2249572eecfb"
+[language.hyprlang.queries]
+source = "bundled"
 
 # iex
 # TODO
@@ -431,25 +414,22 @@ pin = "7275b7f85014aad7e15d4987ec4f2249572eecfb"
 [grammar.ini]
 source = "bundled"
 
-[language.ini.queries.source.git]
-url = "https://github.com/helix-editor/helix"
-pin = "7275b7f85014aad7e15d4987ec4f2249572eecfb"
+[language.ini.queries]
+source = "bundled"
 
 # java
 [grammar.java]
 source = "bundled"
 
-[language.java.queries.source.git]
-url = "https://github.com/helix-editor/helix"
-pin = "7275b7f85014aad7e15d4987ec4f2249572eecfb"
+[language.java.queries]
+source = "bundled"
 
 # javascript
 [grammar.javascript]
 source = "bundled"
 
-[language.javascript.queries.source.git]
-url = "https://git.sr.ht/~hadronized/kak-tree-sitter"
-pin = "3bb01001d93c087c888611bde6ac1254d7338dde"
+[language.javascript.queries]
+source = "bundled"
 
 # jsdoc
 # TODO
@@ -458,17 +438,15 @@ pin = "3bb01001d93c087c888611bde6ac1254d7338dde"
 [grammar.json]
 source = "bundled"
 
-[language.json.queries.source.git]
-url = "https://github.com/helix-editor/helix"
-pin = "7275b7f85014aad7e15d4987ec4f2249572eecfb"
+[language.json.queries]
+source = "bundled"
 
 # jsonc
 [language.jsonc]
 grammar = "json"
 
-[language.jsonc.queries.source.git]
-url = "https://git.sr.ht/~hadronized/kak-tree-sitter"
-pin = "55a8f803c3edc3b07af96199c6158f6e4c77b170"
+[language.jsonc.queries]
+source = "bundled"
 
 # jsonnet
 # TODO
@@ -477,68 +455,58 @@ pin = "55a8f803c3edc3b07af96199c6158f6e4c77b170"
 [language.jsx]
 grammar = "javascript"
 
-[language.jsx.queries.source.git]
-url = "https://git.sr.ht/~hadronized/kak-tree-sitter"
-pin = "2e5b7841b70b91cfa1c91fe24d2d9db54b80ae10"
+[language.jsx.queries]
+source = "bundled"
 
 # julia
 [grammar.julia]
 source = "bundled"
 
-[language.julia.queries.source.git]
-url = "https://github.com/helix-editor/helix"
-pin = "a3b64b6da2ece01fab8f7590c4252d07993c5e2b"
+[language.julia.queries]
+source = "bundled"
 
 # just
 [grammar.just]
 source = "bundled"
 
-[language.just.queries.source.git]
-url = "https://github.com/helix-editor/helix"
-pin = "f6878f62f74430cff188e7978d06c5ed143179e9"
-
 [language.just.queries]
-path = "runtime/queries/just"
+source = "bundled"
+
 
 # kdl
 [grammar.kdl]
 source = "bundled"
 
-[language.kdl.queries.source.git]
-url = "https://github.com/helix-editor/helix"
-pin = "18ca4809cad7a237ac3d42b4d19f493b6751b44f"
+[language.kdl.queries]
+source = "bundled"
 
 # koka
 [grammar.koka]
 source = "bundled"
 
-[language.koka.queries.source.git]
-url = "https://github.com/helix-editor/helix"
-pin = "7275b7f85014aad7e15d4987ec4f2249572eecfb"
+[language.koka.queries]
+source = "bundled"
 
 # kotlin
 [grammar.kotlin]
 source = "bundled"
 
-[language.kotlin.queries.source.git]
-url = "https://github.com/helix-editor/helix"
-pin = "7275b7f85014aad7e15d4987ec4f2249572eecfb"
+[language.kotlin.queries]
+source = "bundled"
 
 # latex
 [grammar.latex]
 source = "bundled"
 
-[language.latex.queries.source.git]
-url = "https://github.com/helix-editor/helix"
-pin = "7275b7f85014aad7e15d4987ec4f2249572eecfb"
+[language.latex.queries]
+source = "bundled"
 
 # lean
 [grammar.lean]
 source = "bundled"
 
-[language.lean.queries.source.git]
-url = "https://github.com/helix-editor/helix"
-pin = "7275b7f85014aad7e15d4987ec4f2249572eecfb"
+[language.lean.queries]
+source = "bundled"
 
 # ledger
 # TODO
@@ -547,9 +515,8 @@ pin = "7275b7f85014aad7e15d4987ec4f2249572eecfb"
 [grammar.llvm]
 source = "bundled"
 
-[language.llvm.queries.source.git]
-url = "https://github.com/helix-editor/helix"
-pin = "7275b7f85014aad7e15d4987ec4f2249572eecfb"
+[language.llvm.queries]
+source = "bundled"
 
 # llvm-mir
 # TODO
@@ -561,17 +528,15 @@ pin = "7275b7f85014aad7e15d4987ec4f2249572eecfb"
 [grammar.lua]
 source = "bundled"
 
-[language.lua.queries.source.git]
-url = "https://github.com/helix-editor/helix"
-pin = "f9f5fe6b12a41b859e56d1d7da225a10b76814ea"
+[language.lua.queries]
+source = "bundled"
 
 # make
 [grammar.make]
 source = "bundled"
 
-[language.make.queries.source.git]
-url = "https://github.com/helix-editor/helix"
-pin = "7275b7f85014aad7e15d4987ec4f2249572eecfb"
+[language.make.queries]
+source = "bundled"
 
 # markdoc
 # TODO
@@ -580,17 +545,15 @@ pin = "7275b7f85014aad7e15d4987ec4f2249572eecfb"
 [grammar.markdown]
 source = "bundled"
 
-[language.markdown.queries.source.git]
-url = "https://github.com/helix-editor/helix"
-pin = "63eb1b870c411c2760c1ac28b0be704430f21439"
+[language.markdown.queries]
+source = "bundled"
 
 # markdown.inline
 [grammar."markdown.inline"]
 source = "bundled"
 
-[language."markdown.inline".queries.source.git]
-url = "https://github.com/helix-editor/helix"
-pin = "56ccaedffbb8011e36012278e2a4861a8d435a60"
+[language."markdown.inline".queries]
+source = "bundled"
 
 # matlab
 # TODO
@@ -599,9 +562,8 @@ pin = "56ccaedffbb8011e36012278e2a4861a8d435a60"
 [grammar.mermaid]
 source = "bundled"
 
-[language.mermaid.queries.source.git]
-url = "https://github.com/helix-editor/helix"
-pin = "036729211a94d058b835f5ee212ab15de83bc037"
+[language.mermaid.queries]
+source = "bundled"
 
 # meson
 # TODO
@@ -619,43 +581,38 @@ pin = "036729211a94d058b835f5ee212ab15de83bc037"
 [grammar.nim]
 source = "bundled"
 
-[language.nim.queries.source.git]
-url = "https://github.com/helix-editor/helix"
-pin = "7275b7f85014aad7e15d4987ec4f2249572eecfb"
+[language.nim.queries]
+source = "bundled"
 
 # nix
 [grammar.nix]
 source = "bundled"
 
-[language.nix.queries.source.git]
-url = "https://github.com/helix-editor/helix"
-pin = "7275b7f85014aad7e15d4987ec4f2249572eecfb"
+[language.nix.queries]
+source = "bundled"
 
 # nu
 [grammar.nu]
 source = "bundled"
 
-[language.nu.queries.source.git]
-url = "https://github.com/helix-editor/helix"
-pin = "7275b7f85014aad7e15d4987ec4f2249572eecfb"
+[language.nu.queries]
+source = "bundled"
 
 # ocaml
 
 [grammar.ocaml]
 source = "bundled"
 
-[language.ocaml.queries.source.git]
-url = "https://github.com/helix-editor/helix"
-pin = "a3b64b6da2ece01fab8f7590c4252d07993c5e2b"
+[language.ocaml.queries]
+source = "bundled"
 
 # ocaml-interface
 
 [grammar."ocaml-interface"]
 source = "bundled"
 
-[language."ocaml-interface".queries.source.git]
-url = "https://github.com/helix-editor/helix"
-pin = "a3b64b6da2ece01fab8f7590c4252d07993c5e2b"
+[language.ocaml-interface.queries]
+source = "bundled"
 
 # odin
 # TODO
@@ -685,9 +642,8 @@ pin = "a3b64b6da2ece01fab8f7590c4252d07993c5e2b"
 [grammar.pest]
 source = "bundled"
 
-[language.pest.queries.source.git]
-url = "https://github.com/helix-editor/helix"
-pin = "b40ea7e73e505f9c10cb04421a8de91575f5c68f"
+[language.pest.queries]
+source = "bundled"
 
 # php
 # TODO
@@ -711,28 +667,23 @@ pin = "b40ea7e73e505f9c10cb04421a8de91575f5c68f"
 [grammar.purescript]
 source = "bundled"
 
-[language.purescript.queries.source.git]
-url = "https://github.com/helix-editor/helix"
-pin = "7275b7f85014aad7e15d4987ec4f2249572eecfb"
+[language.purescript.queries]
+source = "bundled"
 
 # python
 [grammar.python]
 source = "bundled"
 
-[language.python.queries.source.git]
-url = "https://github.com/helix-editor/helix"
-pin = "7275b7f85014aad7e15d4987ec4f2249572eecfb"
+[language.python.queries]
+source = "bundled"
 
 # qml
 [grammar.qmljs]
 source = "bundled"
 
-[language.qmljs.queries.source.git]
-url = "https://github.com/helix-editor/helix"
-pin = "7275b7f85014aad7e15d4987ec4f2249572eecfb"
-
 [language.qmljs.queries]
-path = "runtime/queries/qml"
+source = "bundled"
+
 
 [language.qmljs]
 aliases = ["qml"]
@@ -776,9 +727,8 @@ pin = "7275b7f85014aad7e15d4987ec4f2249572eecfb"
 [grammar.rust]
 source = "bundled"
 
-[language.rust.queries.source.git]
-url = "https://github.com/helix-editor/helix"
-pin = "2baff46b2578d78d817b9e128e8cc00345541f0b"
+[language.rust.queries]
+source = "bundled"
 
 # rust-format-args
 [grammar.rust-format-args]
@@ -798,17 +748,15 @@ pin = "1023e8f96482f725465bf2bc059e274f6ac0bb26"
 [grammar.scheme]
 source = "bundled"
 
-[language.scheme.queries.source.git]
-url = "https://github.com/helix-editor/helix"
-pin = "7275b7f85014aad7e15d4987ec4f2249572eecfb"
+[language.scheme.queries]
+source = "bundled"
 
 # scss
 [grammar.scss]
 source = "bundled"
 
-[language.scss.queries.source.git]
-url = "https://github.com/helix-editor/helix"
-pin = "7275b7f85014aad7e15d4987ec4f2249572eecfb"
+[language.scss.queries]
+source = "bundled"
 
 # slint
 # TODO
@@ -847,9 +795,8 @@ pin = "7275b7f85014aad7e15d4987ec4f2249572eecfb"
 [grammar.task]
 source = "bundled"
 
-[language.task.queries.source.git]
-url = "https://github.com/helix-editor/helix"
-pin = "7275b7f85014aad7e15d4987ec4f2249572eecfb"
+[language.task.queries]
+source = "bundled"
 
 # tfvars
 # TODO
@@ -858,9 +805,8 @@ pin = "7275b7f85014aad7e15d4987ec4f2249572eecfb"
 [grammar.toml]
 source = "bundled"
 
-[language.toml.queries.source.git]
-url = "https://github.com/helix-editor/helix"
-pin = "7275b7f85014aad7e15d4987ec4f2249572eecfb"
+[language.toml.queries]
+source = "bundled"
 
 # tsq
 # TODO
@@ -869,9 +815,8 @@ pin = "7275b7f85014aad7e15d4987ec4f2249572eecfb"
 [language.tsx]
 grammar = "typescript"
 
-[language.tsx.queries.source.git]
-url = "https://git.sr.ht/~hadronized/kak-tree-sitter"
-pin = "2e5b7841b70b91cfa1c91fe24d2d9db54b80ae10"
+[language.tsx.queries]
+source = "bundled"
 
 # twig
 # TODO
@@ -880,9 +825,8 @@ pin = "2e5b7841b70b91cfa1c91fe24d2d9db54b80ae10"
 [grammar.typescript]
 source = "bundled"
 
-[language.typescript.queries.source.git]
-url = "https://git.sr.ht/~hadronized/kak-tree-sitter"
-pin = "c4262970488d2c193f961200d153f54feee83ab9"
+[language.typescript.queries]
+source = "bundled"
 
 # typst
 [language.typst]
@@ -891,9 +835,8 @@ aliases = ["typ", "typc"]
 [grammar.typst]
 source = "bundled"
 
-[language.typst.queries.source.git]
-url = "https://github.com/helix-editor/helix"
-pin = "7275b7f85014aad7e15d4987ec4f2249572eecfb"
+[language.typst.queries]
+source = "bundled"
 
 # ungrammar
 # TODO
@@ -902,9 +845,8 @@ pin = "7275b7f85014aad7e15d4987ec4f2249572eecfb"
 [grammar.unison]
 source = "bundled"
 
-[language.unison.queries.source.git]
-url = "https://github.com/helix-editor/helix"
-pin = "7275b7f85014aad7e15d4987ec4f2249572eecfb"
+[language.unison.queries]
+source = "bundled"
 
 # uxntal
 # TODO
@@ -919,9 +861,8 @@ pin = "7275b7f85014aad7e15d4987ec4f2249572eecfb"
 [grammar.verilog]
 source = "bundled"
 
-[language.verilog.queries.source.git]
-url = "https://github.com/helix-editor/helix"
-pin = "7275b7f85014aad7e15d4987ec4f2249572eecfb"
+[language.verilog.queries]
+source = "bundled"
 
 # vhdl
 # TODO
@@ -956,17 +897,15 @@ pin = "205e7ece70c52a7d921ea014e1017c41488e37e5"
 [grammar.xml]
 source = "bundled"
 
-[language.xml.queries.source.git]
-url = "https://github.com/helix-editor/helix"
-pin = "7275b7f85014aad7e15d4987ec4f2249572eecfb"
+[language.xml.queries]
+source = "bundled"
 
 # yaml
 [grammar.yaml]
 source = "bundled"
 
-[language.yaml.queries.source.git]
-url = "https://github.com/helix-editor/helix"
-pin = "7275b7f85014aad7e15d4987ec4f2249572eecfb"
+[language.yaml.queries]
+source = "bundled"
 
 # yuck
 # TODO
@@ -975,6 +914,5 @@ pin = "7275b7f85014aad7e15d4987ec4f2249572eecfb"
 [grammar.zig]
 source = "bundled"
 
-[language.zig.queries.source.git]
-url = "https://github.com/helix-editor/helix"
-pin = "7275b7f85014aad7e15d4987ec4f2249572eecfb"
+[language.zig.queries]
+source = "bundled"
